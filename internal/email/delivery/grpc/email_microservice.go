@@ -69,7 +69,7 @@ func (e *EmailMicroservice) FindEmailById(ctx context.Context, r *emailService.F
 
 	emailById, err := e.emailUC.FindEmailById(ctx, emailUUID)
 	if err != nil {
-		e.logger.Errorf("emailUC.FindEmailById: %v", err)
+		e.logger.Errorf("EmailUC.FindEmailById: %v", err)
 		return nil, status.Errorf(grpc_errors.ParseGRPCErrStatusCode(err), "emailUC.FindEmailById: %v", err)
 	}
 

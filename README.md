@@ -54,3 +54,34 @@ http://localhost:3000
 ### RabbitMQ UI:
 
 http://localhost:15672
+
+### Install golangci-lint
+
+```bash
+# binary will be $(go env GOPATH)/bin/golangci-lint
+> curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.51.2
+
+# check version
+> golangci-lint --version
+```
+
+### Install migrate
+```bash
+> https://github.com/golang-migrate/migrate/tree/master/cmd/migrate
+
+```
+
+### Install make
+
+```bash
+
+# Windows
+> https://linuxhint.com/run-makefile-windows/
+
+# Linux
+> https://linuxhint.com/install-make-ubuntu/
+
+# Mac OS X
+> brew install make
+
+```

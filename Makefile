@@ -39,6 +39,9 @@ run-linter:
 	echo "Starting linters"
 	golangci-lint run ./...
 
+run-lint-with-output:
+	echo "Starting linters creating output file"
+	golangci-lint run --out-format json >> output.json ./...
 
 # ==============================================================================
 # Go migrate postgresql
@@ -63,13 +66,35 @@ migrate_down:
 
 develop:
 	echo "Starting docker environment"
-	docker-compose -f docker-compose.yml up --build
-
+	docker-compose -f docker-compose.yml up -d --build
 
 local:
 	echo "Starting local environment"
-	docker-compose -f docker-compose.local.yml up --build
+	docker-compose -f docker-compose.local.yml up -d --build
 
+local-compose-logs:
+	echo "Getting local docker compose logs"
+	docker-compose -f docker-compose.local.yml logs
+
+develop-compose-logs:
+	echo "Getting develop docker compose logs"
+	docker-compose -f docker-compose.yml logs
+
+local-compose-ps:
+	echo "Getting local docker compose ps"
+	docker-compose -f docker-compose.local.yml ps
+
+develop-compose-ps:
+	echo "Getting develop docker compose ps"
+	docker-compose -f docker-compose.yml ps
+
+develop-down:
+	echo "Starting docker environment"
+	docker-compose -f docker-compose.yml down
+
+local-down:
+	echo "Starting local environment"
+	docker-compose -f docker-compose.local.yml down
 
 # ==============================================================================
 # Docker support
